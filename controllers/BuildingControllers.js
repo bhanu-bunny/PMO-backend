@@ -44,7 +44,7 @@ var entity =  new Entities({
 });
 
 }
-return res.send("Entities Added")
+//return res.send("Entities Added")
 });
 
 router.post('/SuperLocations/',(req, res) => {
