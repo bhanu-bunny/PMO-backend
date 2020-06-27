@@ -7,6 +7,9 @@ var SimpleSchema = mongoose.Schema({
 var arraySchema = mongoose.Schema({
     name:{type:Array,required:true}
 })
+var nameschema = mongoose.Schema({
+    name: {type: String , required: true}
+});
 //var Noschema= mongoose.Schema({
   //  number:{ type:Number, required:true}
 //});
@@ -19,8 +22,8 @@ var BuildingSchema = mongoose.Schema({
 
 const Projectname= mongoose.model('projects',SimpleSchema,'Projects');
 //const TowerNos= mongoose.model('TowerNos',Noschema,'TowerNos')
-const Entities =mongoose.model('Entities',SimpleSchema,'Entities');
-const SuperLocations =mongoose.model('SuperLocations',SimpleSchema,'SuperLocations');
+const Entities =mongoose.model('Entities',nameschema,'Entities');
+const SuperLocations =mongoose.model('SuperLocations',arraySchema,'SuperLocations');
 
 
 const Building = mongoose.model('Building',BuildingSchema,'Buildings');
