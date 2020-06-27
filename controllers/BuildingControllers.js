@@ -29,18 +29,9 @@ router.post('/Entities/',(req, res) => {
 
 
 
-<<<<<<< HEAD
-=======
-}
-return res.send("Entities Added")
->>>>>>> 9cf248c4e54d4d47cf54a57af7324ae49084a021
 });
 
 
-
-router.post('/SuperLocations/',(req, res) => {
- 
-});
 
 
 
