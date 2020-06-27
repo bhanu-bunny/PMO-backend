@@ -9,6 +9,7 @@ const { mongoose } = require('./db.js');
 var MasterdataController = require('./controllers/MasterdataController');
 var UserController = require('./controllers/UsersControllers');
 var BuildingController = require('./controllers/BuildingControllers');
+var ProjectController = require('./controllers/ProjectController');
 
 var app = express();
 app.use(bodyParser.json());
@@ -21,6 +22,7 @@ app.use(Morgan());
 app.use('/Masterdata', MasterdataController);
 app.use('/Users', UserController);
 app.use('/Building',BuildingController);
+app.use('/Project',ProjectController);
 
 app.use((req,res,next) =>
     {

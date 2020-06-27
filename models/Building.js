@@ -1,18 +1,26 @@
 const mongoose = require('mongoose');
 
-var SimpleSchema = mongoose.Schema({
-    name: {type: String , required: true},
-    code:{ type:String,required:true}
+var EntitySchema = mongoose.Schema({
+    Project:{ type:mongoose.Schema.Types.ObjectId, ref:"projectname", required: true},
+    EntityName: {type: String , required: true},
+    Entitycode:{ type:String,required:true}
 });
-var arraySchema = mongoose.Schema({
-    name:{type:Array,required:true}
-})
-var nameschema = mongoose.Schema({
-    name: {type: String , required: true}
+
+var SuperLocationSchema = mongoose.Schema({
+    Project:{ type:mongoose.Schema.Types.ObjectId, ref:"projectname", required: true},
+    EntityName: {type:mongoose.Schema.Types.ObjectId, ref:"Entities", required: true},
+    SuperLocation:{ type: String, required:true },
+    SuperLocationcode:{type:String,required:true }
 });
-//var Noschema= mongoose.Schema({
-  //  number:{ type:Number, required:true}
-//});
+
+
+
+
+
+var NameSchema = mongoose.Schema({
+    name: {type: String, required: true}
+});
+
 
 var BuildingSchema = mongoose.Schema({
     EntityType:{ type: mongoose.Schema.Types.ObjectId,ref:'EntityType', required: true},
@@ -20,10 +28,11 @@ var BuildingSchema = mongoose.Schema({
 });
 
 
-const Projectname= mongoose.model('projects',SimpleSchema,'Projects');
-//const TowerNos= mongoose.model('TowerNos',Noschema,'TowerNos')
-const Entities =mongoose.model('Entities',nameschema,'Entities');
-const SuperLocations =mongoose.model('SuperLocations',arraySchema,'SuperLocations');
+const Projectname= mongoose.model('projects',NameSchema,'Projects');
+
+const Entities =mongoose.model('Entities',EntitySchema,'Entities');
+
+const SuperLocations =mongoose.model('SuperLocations',SuperLocationSchema,'SuperLocations');
 
 
 const Building = mongoose.model('Building',BuildingSchema,'Buildings');
